@@ -1,0 +1,27 @@
+nav{
+    width: 100%;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    
+    ul{
+        display: flex;
+        justify-content: space-evenly;
+        list-style: none;
+        padding: 10px;
+        align-items: center;
+
+        
+    }
+}
+
+nav ul a {
+    color: rgb(159, 161, 163);
+    font-size: 25px;
+    font-family: 'Pacifico', cursive; /* Cambia la fuente */ 
+}
+
+nav ul a:hover {
+    color: black; /* Cambia de color al pasar el mouse */
+}
+
+
