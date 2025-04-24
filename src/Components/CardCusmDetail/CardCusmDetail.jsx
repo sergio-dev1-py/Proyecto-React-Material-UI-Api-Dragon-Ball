@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
+import fondoImage from "../../assets/Img_fondo.jpg";
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -13,7 +14,9 @@ import Tooltip from '@mui/material/Tooltip';
 
 const CardCusmDetail = ({user}) => {
   const [currentTransformation, setCurrentTransformation] = useState(-1);
+  const [showDescripcion, setShowDescripcion] = useState(false);
   const [currentData, setCurrentData] = useState(user);
+
 
   // Verifica si el personaje tiene transformaciones
   const hasTransformations = user.transformations?.length > 0;
@@ -52,9 +55,16 @@ const CardCusmDetail = ({user}) => {
     
     <Card sx={{ display: 'flex',
       flexDirection: 'row',
-      width: 640, 
+      position: 'relative', 
+      overflow: 'visible',
+      width: 940, 
       height:700,
-      backgroundColor: 'rgb(192, 187, 187)'
+      borderRadius: 6,
+      backgroundColor: 'rgb(192, 187, 187)',
+      '&:hover': {
+          boxShadow: '0px 4px 32px rgb(231, 211, 25)'
+      }
+
       }}>
 
       
@@ -62,9 +72,20 @@ const CardCusmDetail = ({user}) => {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
-      width: '50%' 
+      width: '50%', // Mitad exacta del Card
+      minWidth: '50%', // Fuerza el 50%
+      maxWidth: '50%',
+      backgroundColor: 'rgb(147, 148, 151)',
+      borderTopLeftRadius: 6,
+      borderBottomLeftRadius: 6
       }}>
-      <CardContent sx={{ flex: '1 0 auto'}}>
+
+      <CardContent sx={{
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center'
+      }}>
         <Typography 
           component="div"
 
@@ -73,7 +94,9 @@ const CardCusmDetail = ({user}) => {
             fontWeight: 700,
             fontFamily: 'cursive',
             color: 'white',
-            mb: 1}}>
+            mb: 1,
+            lineHeight: 1.2
+            }}>
 
             {currentData.name} 
             
@@ -147,6 +170,45 @@ const CardCusmDetail = ({user}) => {
         >
           {user.affiliation}
         </Typography>
+
+        <Box sx={{ position: 'relative' }}>
+          <Typography
+            component="div"
+            onMouseEnter={() => setShowDescripcion(true)}
+            onMouseLeave={() => setShowDescripcion(false)}
+            sx={{ 
+              fontSize: '1.4rem',  
+              color: 'Yellow', 
+              fontFamily: 'cursive',
+              mb: -1,
+              cursor: 'pointer'
+            }}
+          >
+            Descripción
+          </Typography>
+
+          {showDescripcion && (
+            <Box sx={{
+              position: 'absolute',
+              zIndex: 9999,
+              top: '100%',
+              left: 0,
+              width: '60vw',
+              maxHeight: '240px',
+              bgcolor: 'rgba(0,0,0,0.95)',
+              border: '2px solid yellow',
+              borderRadius: '8px',
+              p: 2,
+              overflow: 'auto',
+              boxShadow: '0 0 15px rgba(255,255,0,0.5)'
+            }}>
+              <Typography sx={{ color: 'white', fontFamily: 'cursive' }}>
+                {user.description}
+              </Typography>
+            </Box>
+          )}
+        </Box>
+
         
       </CardContent>
 
@@ -185,9 +247,15 @@ const CardCusmDetail = ({user}) => {
         alt={currentData.name}
 
         sx={{ 
-          width: '60%',
+          width: '50%', // Mitad exacta
+          minWidth: '50%',
+          maxWidth: '50%',
           height: '100%',
-          backgroundColor: 'rgb(159, 161, 163)',
+          borderTopRightRadius: 6,
+          borderBottomRightRadius: 6,
+          backgroundImage: `url(${fondoImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
           objectFit: 'contain'
           
         }}

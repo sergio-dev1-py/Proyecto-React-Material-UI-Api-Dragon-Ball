@@ -12,6 +12,10 @@ const CardPlanets = ({planeta}) => {
         margin: '0px 10px',
         backgroundColor: 'rgb(159, 161, 163)',
         color: 'white',
+        '&:hover': {
+          boxShadow: '0px 4px 32px rgb(231, 230, 218)'
+      }
+
       }}>
         <CardMedia
           component="img"

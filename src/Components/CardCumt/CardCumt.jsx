@@ -1,4 +1,6 @@
 import * as React from 'react';
+import fondoImage from "../../assets/Img_fondo.jpg";
+
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -8,7 +10,13 @@ import Box from '@mui/material/Box';
 
 const CardCumt = ({user}) => {
   return (
-    <Card sx={{ minWidth: 265, maxWidth: 265, position: 'relative', overflow: 'visible',   borderRadius: 2}}>
+    <Card sx={{ minWidth: 265, maxWidth: 265,
+        position: 'relative', overflow: 'visible',
+        borderRadius: 2,
+        boxShadow: '0px 4px 8px rgba(26, 27, 26, 0.83)',
+        '&:hover': {
+          boxShadow: '0px 4px 32px rgb(255, 255, 255)', 
+        }}}>
         <CardActionArea>
 
           {/**
@@ -40,7 +48,9 @@ const CardCumt = ({user}) => {
           height: 440,
           overflow: 'visible',
           zIndex: 2,
-          backgroundColor: 'rgb(129, 131, 133)',
+          backgroundImage: `url(${fondoImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
           borderTopLeftRadius: '8px',
           borderTopRightRadius: '8px'
 

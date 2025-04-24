@@ -1,6 +1,7 @@
 
 import { Card, Typography, Box, Avatar } from '@mui/material';
-import myPhoto from './assets/img_perfil.jpeg';
+import myPhoto from "../../assets/img_perfil.jpeg";
+
 import GitHubIcon from '@mui/icons-material/GitHub';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import { Link } from '@mui/material'; 
@@ -9,7 +10,8 @@ const CardAbout = () => {
   return (
 
     <Card sx={{ 
-        maxWidth: 800, 
+        maxWidth: "50vw",
+        minWidth:"20vw", 
         mx: 'auto', 
         p: 4,
         mt: 4,
@@ -43,7 +45,7 @@ const CardAbout = () => {
                 color: 'black',
                 textDecoration: 'none',
                 fontFamily: 'cursive',
-                '&:hover': { textDecoration: 'underline' },
+                '&:hover': { textDecoration: 'underline', color: "white" },
                 mr: 3
             }}
         >
@@ -58,7 +60,7 @@ const CardAbout = () => {
                 color: 'black',
                 textDecoration: 'none',
                 fontFamily: 'cursive',
-                '&:hover': { textDecoration: 'underline' }
+                '&:hover': { textDecoration: 'underline', color: "white" }
             }}
         >
             <InstagramIcon /> sergiomosquer69

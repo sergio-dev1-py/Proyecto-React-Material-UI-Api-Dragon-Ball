@@ -1,8 +1,9 @@
-import {useEffect, useState} from 'react'
-import {useParams} from 'react-router-dom'
+import {useEffect, useState} from 'react';
+import {useParams} from 'react-router-dom';
+import fondoImage from "../../../assets/Imagen_fondo_del.jpg";
 
-import CardCusmDetail from '../../CardCusmDetail/CardCusmDetail'
-import CardPlanets from '../../CardPlanets/CardPlanets'
+import CardCusmDetail from '../../CardCusmDetail/CardCusmDetail';
+import CardPlanets from '../../CardPlanets/CardPlanets';
 
 const PaginaDetalles = () => {
 
@@ -20,7 +21,18 @@ const PaginaDetalles = () => {
   return (
 
 
-    <main style={{  justifyContent: 'center',alignItems: 'center'}}>
+    <main style={{ 
+      width: '100%',
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      gap: '10px',
+      alignItems: 'center', 
+      padding:  '20px clamp(10px, 10vw, 150px)',
+      backgroundImage:  `url(${fondoImage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      }}>
         <CardCusmDetail 
             key={data.id}
             user={data}
